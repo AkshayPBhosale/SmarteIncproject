@@ -16,19 +16,20 @@ public class ComputatonLogic {
 		String[] arrSplit = inputString.split(",");
 		for (int i = 0; i < arrSplit.length; i++) {
 			// I am maintaining a list to store my card values
-			// later I iterate this list to obtain actual values of cards
 			valueList.add(arrSplit[i].substring(arrSplit[i].lastIndexOf("#") + 1));
 			String[] arrSplit2 = arrSplit[i].split("#");
 			for (int j = 0; j < arrSplit2.length; j++) {
 				if (j == 0)
 
 					// I am checking if the card suit inserted is valid or not then I am adding it
-					// to my set
+					// to  set
 					if (!DeckConstants.validSuitsList.contains(arrSplit2[0])) {
 						System.out.println("The suit of card with suit value " + arrSplit2[0] + " is invalid");
-						System.out.println("Invalid card is ignored");
+						System.out.println("Invalid card : Please enter valid cards");
+						return false;
+					} else {
+						suitSet.add(arrSplit2[0]);
 					}
-				suitSet.add(arrSplit2[0]);
 			}
 		}
 		// I am checking whether i got suits with multiple values
@@ -36,22 +37,23 @@ public class ComputatonLogic {
 			return false;
 		} else {
 			return isValuesOfCardsSequenced(valueList);
-			
+
 		}
 	}
 
 	public boolean checkSequence(String inputString) {
 
-		// Here I am checking if suits are valid and of same value
+		// Here I am checking if suits are valid and values are in sequence
 		// If not then I am returning fale.
 		return isSuitSimilarAndCardsSequenced(inputString);
-		
-		// Here I am calculating difference between my values which are sorted in
-		// ascending order
-		// If my difference is not equal to 1 then I return false
+
 	}
 
 	public boolean isValuesOfCardsSequenced(List<String> inputCardsValues) {
+
+		// Here I am calculating difference between my values which are sorted in
+		// ascending order
+		// If my difference is not equal to 1 then I return false
 		List<Integer> sequenceComputeList = new ArrayList<Integer>();
 		for (String everyValue : inputCardsValues) {
 			switch (everyValue) {
@@ -104,7 +106,8 @@ public class ComputatonLogic {
 				break;
 			default:
 				System.out.println("card with value " + everyValue + " was invalid");
-				System.out.println("Invalid card is ignored");
+				System.out.println("Invalid card: Please enter valid cards");
+				return false;
 			}
 		}
 		// sorting the values in order
