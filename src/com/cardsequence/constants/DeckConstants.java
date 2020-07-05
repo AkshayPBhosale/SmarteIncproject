@@ -20,10 +20,6 @@ public class DeckConstants {
 	public static final int CARD_Q = 12;
 	public static final int CARD_K = 13;
 	public static final int CARD_A_VALUE_2 = 14;
-	//List to collect cards
-	public static List<String> valueList = new ArrayList<String>();
-	//List to collect Card values and then I arrange them in ascending order
-	public static List<Integer> sequenceComputeList = new ArrayList<Integer>();
     //This are my valid suit list containing Spade,Heart,Club and Diamond represnted values
 	public static List<String> validSuitsList = new ArrayList<String>(Arrays.asList("S", "H", "C", "D"));
 }
