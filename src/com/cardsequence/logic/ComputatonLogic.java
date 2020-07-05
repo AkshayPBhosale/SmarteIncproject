@@ -24,8 +24,8 @@ public class ComputatonLogic {
 					if(!DeckConstants.validSuitsList.contains(arrSplit2[0])) {
 					System.out.println("The suit of card with suit value "+arrSplit2[0]+" is invalid");
 					System.out.println("Invalid card is ignored");
-					suitSet.add(arrSplit2[0]);
 					}
+				suitSet.add(arrSplit2[0]);
 			}
 		}
 		//I am checking whether i got suits with multiple values
